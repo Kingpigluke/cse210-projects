@@ -1,12 +1,12 @@
 using System;
-using Microsoft.VisualBasic;
+using System.Diagnostics.Tracing;
+using System.IO.Compression;
+
 
 class Program
 {
     static void Main(string[] args)
     {
-        // Console.WriteLine("Bounjour tout le monde");
-
         Circle myCircle = new Circle();
         myCircle.SetRadius(10);
         Console.WriteLine($"{myCircle.GetRadius()}");
@@ -18,8 +18,8 @@ class Program
         Console.WriteLine($"{myCircle2.GetArea()}");
 
         Cylinder myCylinder = new Cylinder();
-        myCylinder.SetCircle(myCircle);
         myCylinder.SetHeight(10);
+        myCylinder.SetCircle(myCircle);
         Console.WriteLine($"{myCylinder.GetVolume()}");
     }
 }
