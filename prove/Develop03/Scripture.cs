@@ -1,27 +1,18 @@
-using System.ComponentModel;
+using System;
 
 class Scripture
 {
-    private List<Word> _words;
+    private string _scriptureText;
+    private Reference _scriptureReference;
 
-    private ScriptureReference _reference;
-
-    public Scripture(string name, int chapter, int verse, string text)
+    public Scripture (Reference scriptureReference, string scriptureText)
     {
-        _reference = new ScriptureReference(name, chapter, verse);
-        _words = ConvertToWords(text);
+        _scriptureReference = scriptureReference;
+        _scriptureText = scriptureText;
     }
 
-    public Scripture(string name, int chapter, int startVerse, int endVerse, string text)
+    public string toString()
     {
-        _reference = new ScriptureReference(name, chapter, startVerse, endVerse);
-        _words = ConvertToWords(text);
+        return string.Format("{0}", _scriptureText);
     }
-
-    public Scripture(ScriptureReference reference, string text)
-    {
-        _reference = reference;
-        _words = ConvertToWords(text);
-    }
-    
 }
